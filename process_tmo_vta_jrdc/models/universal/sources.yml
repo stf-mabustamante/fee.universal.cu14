@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+
+  - name: production_stage
+    description: Capa stage del proyecto de Actividad Canales y Atencion al Cliente - Canales Digitales
+    schema: production_stage
+    tables:
+      - name: tbl_feesii_tmo_vta_per_jrdc_anu
+
+  - name: production_universal_fee_sii
+    description: Capa Universal de Actividad Canales y Atencion al Cliente - Canales Digitales
+    schema: production_universal_fee_sii
+    tables:
+      - name: bdvmsat_tmo_vta_per_jrdc
