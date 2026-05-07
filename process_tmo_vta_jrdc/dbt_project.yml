@@ -1,0 +1,23 @@
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'process_tmo_vta_per_jrdc'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'process_tmo_vta_per_jrdc'
+
+vars:
+  periodo: '1800-01-01'
+  ambient: 'develop'
+  proceso: 'process_tmo_vta_per_jrdc'
+  dominio: 'fee_sii'
+
+# Estas configuraciones las usa dbt para saber donde buscar los diferentes tipos de archivos.
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"

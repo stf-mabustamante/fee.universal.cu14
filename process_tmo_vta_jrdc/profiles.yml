@@ -1,0 +1,33 @@
+process_tmo_vta_per_jrdc:
+  outputs:
+    develop:
+      dataset: production_universal_fee_sii
+      project: bch-prj-gdd-fee-dv-8fc7
+      location: us-east4
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      method: oauth
+      priority: interactive
+      threads: 3
+      type: bigquery
+    qa:
+      dataset: production_universal_fee_sii
+      project: bch-prj-gdd-fee-qa-e7eb
+      location: us-east4
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      method: oauth
+      priority: interactive
+      threads: 3
+      type: bigquery
+    production:
+      dataset: production_universal_fee_sii
+      project: bch-prj-gdd-fee-pr-4f9a
+      location: us-east4
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      method: oauth
+      priority: interactive
+      threads: 3
+      type: bigquery
+  target: develop
