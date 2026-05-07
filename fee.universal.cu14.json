@@ -1,0 +1,75 @@
+{
+    "jobName": "fee.universal.cu14",
+    "description": "Repositorio ingesta FEE importaciones-exportaciones",
+    "responsables": {
+        "gerencia": "Operaciones y Tecnología",
+        "subgerencia": "BigData",
+        "celula": "Olimpo"
+    },
+    "viewers":"gacastillov,dandradev,bhuaytalla,jjsilva,hrodrigueg,ccoronel,daleiva",
+    "builders":"jquirogae,erojasj,jtapiad,jjsilva,mtorresfa,bhuaytalla,ismalinski,cvillanueva,amazzeo,fiskowitz,jloli,hrodrigueg,ccoronel,daleiva",
+    "environments": [
+        {
+            "name": "desa",
+            "promotion": "",
+            "approvers": "",
+            "deployers": "jquirogae,erojasj,jtapiad,jjsilva,mtorresfa,bhuaytalla,ismalinski,cvillanueva,amazzeo,fiskowitz,jloli,hrodrigueg,ccoronel,daleiva",
+            "gcpProjectId": "bch-prj-gdd-fee-dv-8fc7",
+            "gcpRegion":"us-east4",
+            "gcpDeployArgs": [
+                "--service-account=sadvgddfwruningesta-01@bch-prj-gdd-fee-dv-8fc7.iam.gserviceaccount.com",
+                "--no-allow-unauthenticated",
+                "--platform=managed",
+                "--concurrency=4",
+                "--min-instances=0",
+                "--cpu-boost",
+		        "--set-env-vars='CLOUD_RUN_INGESTA='",
+                "--set-env-vars='CLOUD_RUN_TRANSFORMACION='",
+                "--set-env-vars='TOPICO_MONITOREO=pusedvgcppsgddfeemonitoreo15'",
+                "--set-env-vars='PROJECT_ID=bch-prj-gdd-fee-dv-8fc7'"
+            ]
+        },
+        {
+            "name": "qa",
+            "promotion": "aprobacion_para_qa",
+            "approvers": "jquirogae,erojasj,jtapiad,jjsilva,mtorresfa,bhuaytalla,ismalinski,cvillanueva,amazzeo,fiskowitz,jloli,hrodrigueg,ccoronel,daleiva",
+            "deployers": "DSO_TOOLS_CONTROL_CALIDAD",
+            "gcpCredentialId": "gcp_service_account_qa",
+            "gcpServiceAccount": "",
+            "gcpProjectId": "bch-prj-gdd-fee-qa-e7eb",
+            "gcpRegion":"us-east4",
+            "gcpDeployArgs": [
+                "--service-account=saqagddfwruningesta-01@bch-prj-gdd-fee-qa-e7eb.iam.gserviceaccount.com",
+                "--no-allow-unauthenticated",
+                "--platform=managed",
+                "--concurrency=4",
+                "--min-instances=0",
+                "--cpu-boost",
+		        "--set-env-vars='CLOUD_RUN_INGESTA='",
+                "--set-env-vars='CLOUD_RUN_TRANSFORMACION='",
+                "--set-env-vars='TOPICO_MONITOREO=puseqagcppsgddfeemonitoreo15'",
+                "--set-env-vars='PROJECT_ID=bch-prj-gdd-fee-qa-e7eb'"
+            ]
+        },
+        {
+            "name": "prod",
+            "promotion": "aprobacion_para_prod",
+            "approvers": "DSO_TOOLS_CONTROL_CALIDAD",
+            "deployers": "DSO_TOOLS_PRODUCCION",
+            "gcpProjectId": "bch-prj-gdd-fee-pr-4f9a",
+            "gcpRegion":"us-east4",
+            "gcpDeployArgs": [
+                "--service-account=saprgddfwruningesta-01@bch-prj-gdd-fee-pr-4f9a.iam.gserviceaccount.com",
+                "--no-allow-unauthenticated",
+                "--platform=managed",
+                "--concurrency=4",
+                "--min-instances=0",
+                "--cpu-boost",
+		        "--set-env-vars='CLOUD_RUN_INGESTA='",
+                "--set-env-vars='CLOUD_RUN_TRANSFORMACION='",
+                "--set-env-vars='TOPICO_MONITOREO=puseprgcppsgddfeemonitoreo15'",
+                "--set-env-vars='PROJECT_ID=bch-prj-gdd-fee-pr-4f9a'"
+            ]
+        }
+    ]
+}
